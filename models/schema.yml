@@ -1,0 +1,20 @@
+sources:
+  - name: source1
+    schema: raw
+    tables:
+      - name: batch_claims_staging
+      - name: streaming_claims_staging
+
+models:
+  - name: stg_claims_batch
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_claims_streaming
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+          - unique
