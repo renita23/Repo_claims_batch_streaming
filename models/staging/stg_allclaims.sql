@@ -1,4 +1,3 @@
--- models/staging/stg_all_claims.sql
 {{ config(materialized='view') }}
 
 with batch_claims as (
