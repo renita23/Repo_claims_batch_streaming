@@ -6,15 +6,10 @@ sources:
       - name: streaming_claims_staging
 
 models:
-  - name: stg_claims_batch
+  - name: stg_allclaims
     columns:
       - name: claim_id
         tests:
           - not_null
           - unique
-  - name: stg_claims_streaming
-    columns:
-      - name: claim_id
-        tests:
-          - not_null
-          - unique
+         
