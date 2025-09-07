@@ -38,6 +38,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   claims_batch_streaming:
     staging:
-      schema: raw
+      +materialized: view
+    facts:
+      +materialized: table
+    marts:
+      +materialized: table
 
   

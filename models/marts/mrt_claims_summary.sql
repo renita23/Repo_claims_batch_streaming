@@ -10,3 +10,5 @@ select
     sum(claim_amount) as total_amount
 from claim_source
 GROUP BY claim_type, claim_amount, source_type
+
+{{ config(materialized='table') }}

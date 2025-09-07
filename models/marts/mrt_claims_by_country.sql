@@ -10,10 +10,16 @@ select
 from claim_source
 where claim_id is not null
 
+)
 
-select
-    upper(claim_status) as claim_status,
-    count(*) as total
-from claim_source
-where claim_id is not null
-group by upper(claim_status)
+WITH country_counts AS (
+    SELECT UPPER(TRIP_COUNTRY) AS COUNTRY, COUNT(*) AS claim_count
+    FROM RAW.BATCH_CLAIMS_STAGING
+    WHERE CLAIM_ID IS NOT NULL
+    GROUP BY UPPER(TRIP_COUNTRY)
+)
+SELECT COUNTRY, claim_count
+FROM country_counts
+WHERE claim_count = (SELECT MAX(claim_count) FROM country_counts);
+
+{{ config(materialized='table') }}

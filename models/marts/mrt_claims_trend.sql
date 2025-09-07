@@ -10,3 +10,5 @@ select
 from claim_source
 group by date_trunc('day', SUBMISSION_DATE), claim_type
 order by day
+
+{{ config(materialized='table') }}

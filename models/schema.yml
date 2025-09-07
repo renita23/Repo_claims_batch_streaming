@@ -12,4 +12,18 @@ models:
         tests:
           - not_null
           - unique
-         
+  - name: fct_claims
+    description: "Transaction-level claims fact table"
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+          - unique
+      - name: claim_amount
+        tests:
+          - not_null
+      - name: claim_date
+      - name: claim_type
+      - name: claim_status
+      - name: trip_country
+      - name: source_type
